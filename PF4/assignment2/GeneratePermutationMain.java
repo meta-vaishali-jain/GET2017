@@ -20,7 +20,7 @@ public class GeneratePermutationMain {
 		GeneratePermutationRunner runner=new GeneratePermutationRunner();
 		mainObject.getInputFromUser();
 		List<String> stringPermutations = new ArrayList<String>();
-		stringPermutations =permutations.generatePermutation(mainObject.inputString);
+		stringPermutations =permutations.generatePermutations(mainObject.inputString);
 		for(int i=0; i< stringPermutations.size(); i++){
 			System.out.println(stringPermutations.get(i));
 		}

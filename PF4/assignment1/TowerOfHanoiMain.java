@@ -20,7 +20,7 @@ public class TowerOfHanoiMain {
 		TowerOfHanoiRunner runner=new TowerOfHanoiRunner();
 		mainObject.getInputFromUser();
 		List<String> resultMoves = new ArrayList<String>();
-		resultMoves = moveDisk.towerOfHanoi("A", "B", "C", mainObject.numberOfDisk);
+		resultMoves = moveDisk.utilTowerOfHanoi("A", "B", "C", mainObject.numberOfDisk);
 		for(int i=0; i< resultMoves.size(); i++){
 			System.out.println(resultMoves.get(i));
 		}
