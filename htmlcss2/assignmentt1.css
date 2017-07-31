@@ -1,0 +1,41 @@
+#header{
+	    color: blue;
+		background:#E0FFFF;
+		border:1px solid blue;
+		 padding: 10px;
+}
+div{
+	background:white;
+}
+#content{
+	display:flex;
+	height: 90%;
+	margin-top: 2%;
+	display:flex;
+}
+#main{
+		background:lightsteelblue;
+}
+#mainContainer{
+		background:white;
+		padding: 1% 1% 1% 2%;
+		margin-top:2%;
+}
+#leftContainer{
+	width: 18%;
+	height:40%;
+	background:black;
+	border-style: outset;
+}
+#rightContainer{
+	width: 80%;
+	height:100%;
+	
+}
+.infoBox{
+	font-family:arial;
+	margin-left:5%;
+	width:95%;
+	height:30%;
+	
+}
