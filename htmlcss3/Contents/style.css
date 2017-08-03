@@ -1,0 +1,44 @@
+div{
+height:100px;
+width:100px;
+margin:50px;
+background-color: blue;
+transition:3s;
+
+}
+
+.box1:hover{
+  background-color: red;
+  transform: rotate(360deg);
+
+}
+
+.box2:hover{
+  background-color: green;
+  transform: scale(1.5,1.5);
+}
+
+.box3:hover{
+  background-color: skyblue;
+  transform: translate(20px,20px);
+}
+
+.box4:hover{
+    animation:2s skewAnimation 0s ease-in infinite alternate;
+
+  background-color: yellow;
+
+}
+@keyframes skewAnimation
+{
+  0%
+  {
+    background-color:green;
+    width:100px;
+    transform: skew(0,0);
+  }
+  100%
+  {
+      transform: skew(20deg,20deg);
+      background-color: yellow;
+  }
