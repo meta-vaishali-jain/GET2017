@@ -1,0 +1,12 @@
+<html>
+
+	<body>
+	
+		<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="600" height="600">
+			<circle cx="110" cy="110" r="50" fill="white" stroke="#979B9C" stroke-width="5" />
+			<path d="M110 162 A 45 45 180 0 1 110 58 " fill="#2E94D1"/>
+		</svg>
+		
+	</body>
+	
+</html>
