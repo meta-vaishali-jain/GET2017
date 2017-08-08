@@ -1,0 +1,120 @@
+
+function limitText(limitField, limitNum) {
+    if (limitField.value.length > limitNum) {
+        limitField.value = limitField.value.substring(0, limitNum);
+    }
+}
+
+function allLetter(Field)
+      {
+        alert(Field);
+        var inputtxt=document.getElementById('userName').value;
+        alert(inputtxt);
+      var letters = "^[A-Za-z ]+$";
+      if(inputtxt.match(letters))
+      {
+      alert('Your name have accepted : you can try another');
+      document.getElementById(Field).innerHTML="";
+      return true;
+      }
+      else{
+      alert('wrong input');
+        document.getElementById(Field).style.display='inline-block';
+        document.getElementById(Field).innerHTML="invalid name";
+
+        document.getElementById(Field).focus();
+        return false;
+      }
+      }
+
+      function checkEmail(Field)
+          {
+            alert(Field);
+            var inputtxt=document.getElementById('userEmail').value;
+            alert(inputtxt);
+          var letters = "^[a-zA-Z0-9._]+@[a-zA-Z]+.[a-zA-Z]{2,3}$";
+          if(inputtxt.match(letters))
+          {
+          alert('Your name have accepted : you can try another');
+          document.getElementById(Field).innerHTML="";
+          return true;
+          }
+          else
+          {
+          alert('wrong input');
+          document.getElementById(Field).style.display='inline-block';
+          document.getElementById(Field).innerHTML="invalid email";
+
+          document.getElementById(Field).focus();
+          return false;
+          }
+          }
+
+
+
+          function checkCity(Field)
+                          {
+                            alert(Field);
+
+                            var selectIndex=document.getElementById('userCity').selectedIndex;
+                            var inputtxt=document.getElementById('userCity').options;
+                            alert(inputtxt[selectIndex].text);
+                            if(!inputtxt=="")
+        	                  {
+        		                 document.getElementById("selectedCity").style.display='block';
+        		                 document.getElementById("selectedCity").value ="selected city is " + inputtxt[selectIndex].text;
+        		                 return true;
+        	                   }
+        	                  else
+        	                  {
+        		                 alert('Please select a city');
+        		                 document.getElementById('userCity').focus();
+        	                  	return false;
+                          	}
+                          }
+
+                          function checkOrganisation(Field)
+                        {
+                          alert(Field);
+                          var inputtxt=document.getElementById('userOrgName').value;
+                          alert(inputtxt);
+                        var letters = "^[A-Za-z ]+$";
+                        if(inputtxt.match(letters))
+                        {
+                        alert('Your name have accepted : you can try another');
+                        document.getElementById(Field).innerHTML="";
+                        return true;
+                        }
+                        else
+                        {
+                        alert('wrong input');
+                        document.getElementById(Field).style.display='inline-block';
+                        document.getElementById(Field).innerHTML="invalid organisation name";
+
+
+                        document.getElementById(Field).focus();
+                        return false;
+                        }
+                        }
+
+                        function checkContact(Field)
+                      {
+                        alert(Field);
+                        var inputtxt=document.getElementById('userContactNo').value;
+                        alert(inputtxt);
+                      var letters = /^[0-9]{10}$/;
+                      if(inputtxt.match(letters))
+                      {
+                      alert('Your name have accepted : you can try another');
+                      document.getElementById(Field).innerHTML="";
+                      return true;
+                      }
+                      else
+                      {
+                      alert('wrong input');
+                      document.getElementById(Field).style.display='inline-block';
+                      document.getElementById(Field).innerHTML="invalid contact number";
+                      document.getElementById('userContactNo').focus();
+                      return false;
+                      }
+                      }
