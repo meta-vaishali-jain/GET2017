@@ -1,0 +1,210 @@
+/**
+function which describes the node its data value and the node it will
+be pointing to.
+**/
+function Node(nodeData) {
+    this.nodeData = nodeData;
+    this.nextPointer = null;
+}
+
+/**
+function used to describe the complete single linked list by describing its length which is initially zero
+and head pointer which is initially pointing to null
+**/
+function SinglyLinkedList() {
+    this.listLength = 0;
+    this.headPointer = null;
+}
+
+/**
+function to add node at the beginining of the linked list
+**/
+SinglyLinkedList.prototype.addAtBeginning=function(dataToInsert){
+    if(dataToInsert == null){
+      console.log("Invalid Value");
+      return;
+    }
+  dataNode=new Node(dataToInsert);
+  if(this.headPointer==null){
+    this.headPointer=dataNode;
+    this.listLength++;
+    return dataNode;
+  }
+  else{
+    dataNode.nextPointer=this.headPointer;
+    this.headPointer=dataNode;
+    this.listLength++;
+    return dataNode;
+  }
+}
+
+/**
+function to add node at the last of the linked list
+**/
+SinglyLinkedList.prototype.addAtLast=function(dataToInsert){
+  if(dataToInsert==null){
+    console.log("Invalid Value");
+    return;
+  }
+    dataNode=new Node(dataToInsert);
+    if(this.headPointer==null){
+      this.headPointer=dataNode;
+      this.listLength++;
+      return dataNode;
+    }
+    else{
+      currentNode=this.headPointer;
+      while(currentNode.nextPointer!=null){
+        currentNode=currentNode.nextPointer;
+      }
+      currentNode.nextPointer=dataNode;
+      this.listLength++;
+      return dataNode;
+    }
+  }
+
+/**
+ function to add node at the given position
+*/
+  SinglyLinkedList.prototype.addAtGivenPosition=function(dataToInsert,position){
+    try{
+    if(dataToInsert==null){
+      throw new Error("Invalid Value");
+    }
+    // if position value is invalid zero or in negative
+    if(position < 1){
+      throw new Error('Invalid position');
+    }
+  //if position value is greater than the list size
+    if(position > this.listLength+1){
+      throw new Error('position out of bound');
+    }
+  }catch(exception){
+    console.log(exception);
+    return;
+  }
+
+  //if position is equal to 1
+  if(position==1){
+  dataNode = this.addAtBeginning(dataToInsert);
+  }
+  //if position is equal to last
+  else if (position==this.listLength+1){
+  dataNode = this.addAtLast(dataToInsert);
+  }else{
+  dataNode=new Node(dataToInsert);
+
+  var previousNode = null;
+  var currentNode = this.headPointer;
+  var nodeCount = 1;
+
+  while(!currentNode && nodeCount<position){
+    previousNode=currentNode;
+    currentNode=currentNode.nextPointer;
+    nodeCount++;
+  }
+
+  previousNode.nextPointer=dataNode;
+  dataNode.nextPointer=currentNode;
+  this.listLength++;
+}
+  return dataNode;
+}
+
+//function to check if list is empty or not
+SinglyLinkedList.prototype.checkIfListEmpty = function(){
+  try{
+    if(this.listLength==0){
+      throw new Error("Empty List,element cant be deleted");
+    }
+  }catch(error){
+    console.log(error);
+    return true;
+  }
+
+  return false;
+}
+
+/**
+function to remove the first node of the linked list.
+*/
+SinglyLinkedList.prototype.removeFirstNode=function(){
+  //to check if list is empty or not
+  if(!this.checkIfListEmpty()){
+
+  //updating head pointer
+  var currentNode=this.headPointer;
+  this.headPointer=currentNode.nextPointer;
+  currentNode=null;
+  this.listLength--;
+  }
+}
+
+/**
+function to remove the last node of the linked list.
+*/
+SinglyLinkedList.prototype.removeLastNode=function(){
+  //to check if list is empty or not
+      if(!this.checkIfListEmpty()){
+    var currentNode=this.headPointer;
+    var previousNode=null;
+    //to iterate to last node
+    while(currentNode.nextPointer!=null){
+      previousNode=currentNode;
+      currentNode=currentNode.nextPointer;
+    }
+    //updating pointers
+    previousNode.nextPointer=null;
+    currentNode=null;
+    this.listLength--;
+  }
+  }
+
+  /**
+  To search for element in the linked list
+  */
+  SinglyLinkedList.prototype.getElementPosition=function(elementValue){
+    var currentNode=this.headPointer;
+    var elementPosition=0;
+    while(currentNode!=null && currentNode.nodeData!=elementValue){
+      currentNode=currentNode.nextPointer;
+      elementPosition++;
+    }
+    //if element not found in the list
+    try{
+    if(currentNode==null){
+      throw new Error("element does not belong to the list");
+    }
+  }catch(error){
+    console.log(error);
+  }
+  //return position of the element
+    return elementPosition+1;
+  }
+
+  /**
+  function to remove the node based on the element
+  */
+  SinglyLinkedList.prototype.removeParticularElementNode=function(elementValue){
+    var position=this.getElementPosition(elementValue);
+    //if position is equal to 1
+    if(position==1){
+      this.removeFirstNode();
+    }
+    //if position is equal to last
+    else if (position==this.listLength){
+    this.removeLastNode();
+    }
+  else{
+    var previousNode = null;
+    var currentNode = this.headPointer;
+    var nodeCount = 1;
+    while(currentNode!=null && nodeCount<position){
+      currentNode=currentNode.nextPointer;
+      nodeCount++;
+    }
+    previousNode.nextPointer=currentNode.nextPointer;
+    currentNode=null;
+    this.listLength--;
+  }
+}

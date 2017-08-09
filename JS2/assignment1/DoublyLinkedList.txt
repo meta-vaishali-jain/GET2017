@@ -1,0 +1,200 @@
+/**
+function which describes the node its data value and the previous and next node it will
+be pointing to.
+*/
+function Node(nodeData) {
+    this.nodeData = nodeData;
+    this.previousPointer = null;
+    this.nextPointer = null;
+}
+
+/**
+function used to describe the complete doubly linked list by describing its length which is initially zero
+and head pointer and tail pointer which is initially pointing to null
+*/
+function DoublyLinkedList() {
+    this.listLength = 0;
+    this.headPointer = null;
+    this.tailPointer = null;
+}
+
+/**
+function to add node at the begining of the doubly linked list
+*/
+DoublyLinkedList.prototype.addAtBeginning=function(dataToInsert){
+  dataNode=new Node(dataToInsert);
+  if(this.headPointer==null){
+    this.headPointer=dataNode;
+    this.tailPointer=dataNode;
+    this.listLength++;
+    return dataNode;
+  }
+  else{
+    this.headPointer.previousPointer=dataNode;
+    dataNode.nextPointer=this.headPointer;
+    this.headPointer=dataNode;
+    this.listLength++;
+    return dataNode;
+  }
+}
+
+/**
+function to add node at the end of the doubly linked list
+*/
+DoublyLinkedList.prototype.addAtLast=function(dataToInsert){
+  dataNode=new Node(dataToInsert);
+  if(this.headPointer==null){
+    this.headPointer=dataNode;
+    this.tailPointer=dataNode;
+    this.listLength++;
+    return dataNode;
+  }
+  else{
+    this.tailPointer.nextPointer=dataNode;
+    dataNode.previousPointer=this.tailPointer;
+    this.tailPointer=dataNode;
+    this.listLength++;
+    return dataNode;
+  }
+}
+
+/**
+function to add node at the given position
+*/
+DoublyLinkedList.prototype.addAtGivenPosition=function(dataToInsert,position){
+  // if position value is invalid zero or in negative
+  try{
+  if(position < 1){
+    throw new Error('Invalid position');
+  }
+  }catch(exception){
+  console.log(exception);
+}
+//if position value is greater than the list size
+try{
+if(position > this.listLength+1){
+  throw new Error('position out of bound');
+}
+}catch(exception){
+console.log(exception);
+}
+//if position is equal to 1
+if(position==1){
+dataNode=  this.addAtBeginning(dataToInsert);
+}
+//if position is equal to last
+else if (position==this.listLength+1){
+dataNode=  this.addAtLast(dataToInsert);
+}
+else{
+dataNode=new Node(dataToInsert);
+var currentNode = this.headPointer;
+var nodeCount = 1;
+  while(currentNode!=null && nodeCount<position){
+    currentNode=currentNode.nextPointer;
+    nodeCount++;
+    }
+    dataNode.nextPointer=currentNode;
+    dataNode.previousPointer=currentNode.previousPointer.nextPointer;
+    currentNode.previousPointer.nextPointer=dataNode;
+    currentNode.previousPointer=dataNode;
+    this.listLength++;
+    }
+    return dataNode;
+  }
+
+  //function to check if list is empty or not
+  DoublyLinkedList.checkIfListEmpty=function(){
+    try{
+      if(this.listLength==0){
+        throw new Error("Empty List,element cant be deleted");
+      }
+    }catch(exception){
+      console.log(exception);
+      alert("in here");
+      return true;
+    }
+
+    return false;
+  }
+
+  /**
+  function to remove the first node of the doubly linked list.
+  */
+  DoublyLinkedList.prototype.removeFirstNode=function(){
+    //to check if list is empty or not
+    if(!this.checkIfListEmpty()){
+
+    //updating head pointer
+    var currentNode=this.headPointer;
+    this.headPointer=currentNode.nextPointer;
+    currentNode.nextPointer.previousPointer=null;
+    currentNode=null;
+    this.listLength--;
+    }
+  }
+
+  /**
+  function to remove the last node of the doubly linked list.
+  */
+  DoublyLinkedList.prototype.removeLastNode=function(){
+    //to check if list is empty or not
+      if(!this.checkIfListEmpty()){
+        //updating head pointer
+      var currentNode=this.tailPointer;
+      currentNode.previousPointer.nextPointer=null;
+      this.tailPointer=currentNode.previousPointer;
+      currentNode=null;
+      this.listLength--;
+    }
+    }
+    /**
+    To search for element in the doubly linked list
+    */
+    DoublyLinkedList.prototype.getElementPosition=function(elementValue){
+      var currentNode=this.headPointer;
+      var elementPosition=0;
+      while(currentNode!=null && currentNode.nodeData!=elementValue){
+        currentNode=currentNode.nextPointer;
+        elementPosition++;
+      }
+      //if element not found in the list
+      try{
+      if(currentNode==null){
+        throw new Error("element does not belong to the list");
+      }
+    }catch(error){
+      console.log(error);
+    }
+    //return position of the element
+      return elementPosition+1;
+    }
+
+    /**
+    function to remove the node based on the element
+    */
+    DoublyLinkedList.prototype.removeParticularElementNode=function(elementValue){
+      var position=this.getElementPosition(elementValue);
+      //if position is equal to 1
+      alert(position);
+      if(position==1){
+        this.removeFirstNode();
+      }
+      //if position is equal to last
+      else if (position==this.listLength){
+      this.removeLastNode();
+      }
+      else{
+        var currentNode = this.headPointer;
+        var nodeCount = 1;
+        while(currentNode!=null && nodeCount<position){
+          currentNode=currentNode.nextPointer;
+          nodeCount++;
+        }
+        currentNode.previousPointer.nextPointer=currentNode.nextPointer;
+        currentNode.nextPointer.previousPointer=currentNode.previousPointer;
+
+        currentNode=null;
+        this.listLength--;
+      }
+    }

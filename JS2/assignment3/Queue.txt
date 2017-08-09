@@ -1,0 +1,58 @@
+/**
+function to describe the node of the queue which includes the value of the node
+and the pointer to node it will pointing to.
+*/
+function Node(nodeData){
+  this.nodeData=nodeData;
+  this.nextPointer=null;
+}
+
+/**
+function to describe the complete queue by describing queue length which is initially
+zero and the front.rear pointer which is initially pointing to null.
+*/
+function Queue(){
+  this.queueLength=0;
+  this.frontPointer=null;
+  this.rearPointer=null;
+}
+
+/**
+function to enqueue node in the queue.
+*/
+Queue.prototype.enqueue=function(dataToInsert){
+    dataNode=new Node(dataToInsert);
+    if(!dataToInsert){
+      console.log("Invalid value");
+      return;
+    }
+    //if initially queue is empty
+    if(this.frontPointer==null){
+      this.frontPointer=dataNode;
+    }
+    else{
+    this.rearPointer.nextPointer=dataNode;
+    }
+    this.rearPointer=dataNode;
+    this.queueLength++;
+    return dataNode;
+  }
+
+  /**
+  function to dequeue node fron the queue.
+  */
+  Queue.prototype.dequeue=function(){
+    //if queue is empty no element to delete
+    if(this.rearPointer==null){
+      console.log("Queue is empty ,no element to delete");
+      return;
+    }
+    else {
+      currentNode=this.frontPointer;
+      this.frontPointer=currentNode.nextPointer;
+      currentNode=null;
+      this.queueLength--;
+    }
+
+
+}
