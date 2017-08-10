@@ -1,0 +1,11 @@
+<html>
+
+	<body>
+	
+		<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100px" height="100px" >
+			<circle cx="50px" cy="50px" r="40px" fill="#2E94D1" />
+		</svg>
+		
+	</body>
+	
+</html>
