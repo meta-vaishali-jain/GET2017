@@ -1,0 +1,51 @@
+/**
+function to describe the node of the stack which includes the value of the node
+and the pointer to node it will pointing to.
+*/
+function Node(nodeData){
+  this.nodeData=nodeData;
+  this.previousPointer=null;
+}
+/**
+function to describe the complete stack by describing stack length which is initially
+zero and the top pointer which is initially pointing to null.
+*/
+function Stack(){
+  this.stackLength=0;
+  this.topPointer=null;
+}
+
+/**
+function to push node in the stack.
+*/
+Stack.prototype.push=function(dataToInsert){
+    //if there is invalid value to insert
+  if(!dataToInsert){
+    console.log("Invalid value");
+    return;
+  }
+  dataNode=new Node(dataToInsert);
+
+
+  //updating pointers value;
+  dataNode.previousPointer=this.topPointer;
+  this.topPointer=dataNode;
+  this.stackLength++;
+  return dataNode;
+}
+
+/**
+function to pop node from the stack.
+*/
+Stack.prototype.pop=function(){
+  //to check if stack is empty or not
+  if(this.topPointer==null){
+    console.log("stack is empty ,no element to pop");
+    return;
+  }
+  //updating pointers value
+  var elementToPop=this.topPointer.nodeData;
+  this.topPointer=this.topPointer.previousPointer;
+  this.stackLength--;
+  return elementToPop;
+}
