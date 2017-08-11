@@ -1,0 +1,47 @@
+/**
+perform addition on two numbers by using closure property.
+*/
+function PerformAddition(firstNumber,secondNumber){
+  /*
+  if user passes input in form PerformAddition(2)(3) then firstly it
+  will take second number as undefined
+  */
+    if( secondNumber == null){
+      /*
+      it will call inner function by taking second paraneter and according to
+      closure property inner function have access to outer variables
+      */
+      return function(secondNumber){
+        //perform validations on numbers
+          if(validateInput(firstNumber,secondNumber)){
+            return;
+          }
+          else{
+            //parsing the number into integer
+          return parseInt(firstNumber)+parseInt(secondNumber);
+        }
+      }
+    }else{
+      /*
+      if user passes number in the format PerformAddition(2,3)
+      */
+      if(validateInput(firstNumber,secondNumber)){
+        return;
+      }
+      else{
+      return parseInt(firstNumber)+parseInt(secondNumber);
+    }
+  }
+}
+
+/**
+function to perform validations on the input numbers
+*/
+function validateInput(firstNumber,secondNumber){
+  //to check entered input is number or not
+  if(isNaN(firstNumber) & isNaN(secondNumber)){
+    console.log("Enter valid number");
+    return true;
+  }
+  return false;
+}

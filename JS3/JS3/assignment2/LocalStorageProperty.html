@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>HTML 5</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="Contents//style.css"></link>
+
+
+</head>
+<body>
+    <table align=center border="0" width="85%" height="20px">
+		<tr>
+		<td width=10%></td>
+		<td align=left width="50%"><img src="HTMLlogo.png" height="50px"></td>
+			<td align=right width="50%"> <a onclick="goToThisPage('htmlsession1assignment1.html')">Home</a></td>
+      <td align=right width="50%"><a onclick="goToThisPage('About.html')">About</a></td>
+			<td align=right width="50%"> <a onclick="goToThisPage('Product.html')">Product</a></td>
+			<td align=right width="50%"> <a onclick="goToThisPage('Gallery.html')">Gallery</a></td>
+			<td align=right width="50%"> <aonclick="goToThisPage('htmlsession1assignment2.html')">Contact</a></td>
+		</tr>
+	</table>
+	<hr>
+<form method="post" id="theform">
+<table width ="50%"  align=center border="0">
+     <tr><td colspan = "2" border="5" align ="center"> <img src="download.jpg" height="200 px" align="middle"></img></tr>
+</table>
+<br></br>
+<p align="center" id="formfill"></p>
+<table width="25%"  align=center border="0">
+
+	 <tr>
+		<td width="40%">Name</td>
+		<td width="60%" class="name"><input type="text" width= "20%" name="Name" id="userName" onKeyDown="limitText(this,20);" onKeyUp="limitText(this,20);" onchange="checkName('nameError');"> <i class="fa fa-exclamation-circle" id="nameICon" ></i> <span id="nameError" class="error">dfsddfsf </span> </td>
+	</tr>
+  <tr>
+		<td  align="left" width ="40%">Email</td>
+
+		<td  align ="left" class="name" width ="60%"><input type="text" width= "50%" name="Name" id="userEmail" onchange="checkEmail('emailError');"><i class="fa fa-exclamation-circle" id="emailICon" ></i><span id="emailError" class="error">dfsddfsf</span> </td>
+	</tr>
+  <tr>
+		<td  align="left" width ="40%">City</td>
+		<td  align="left">
+			<select name="cities" onchange="checkCity('cityError')" id="userCity">
+      <option value="" disabled selected hidden ></option>
+    	<option value="">Jaipur</option>
+			<option value="">Bhilwara</option>
+			<option value="">Bundi</option>
+			<option value="">Ajmer</option>
+			<option value="">Jodhpur</option>
+			<option value="">Kota</option>
+			<option value="">Udaipur</option>
+			</select>
+      <i class="fa fa-exclamation-circle" id="cityICon" ></i>
+      <span id="cityError" class="error">dfsddfsf</span>
+		</td>
+	</tr>
+  <tr>
+		<td></td>
+		<td >
+			<input type="text" readonly id="selectedCity" style="display:none">
+		</td>
+	</tr>
+
+
+  <tr>
+		<td  align="left" width ="30%">Organisation Name</td>
+
+		<td width="60%" class="name"><input type="text" width= "20%" name="Name" id="userOrgName"  onchange="checkOrganisation('orgError');"><i class="fa fa-exclamation-circle" id="orgICon" ></i> <span id="orgError" class="error"  >dfsddfsf</span></td>
+	</tr>
+
+	<tr>
+		<td  align="left" width ="20%">Contact Number</td>
+
+    <td width="60%" class="name"><input type="text" width= "20%" name="Name" id="userContactNo"  onchange="checkContact('contactError');"> <i class="fa fa-exclamation-circle" id="contactICon" ></i><span id="contactError" class="error"  >dfsddfsf</span></td>
+
+	</tr>
+	<tr>
+		<td  align="left" width ="30%">Message</td>
+		<td  align ="left" width ="70%"><textarea name="Text1"  rows="5" id="message" onKeyDown="limitText(this,250);" onKeyUp="limitText(this,250);" onblur="limitText(this,250);" onchange="checkMessage();"></textarea></td>
+	</tr>
+	<tr>
+	<td align="center" colspan="2"><input type="button"  value="Submit"
+  onclick="saveToLocalStorage();"   id="submitButton" ></td>
+	</tr>
+  <tr>
+	<td></td>
+	<td><input type="button" id="getLocalStorage" value="Clear Form" onclick="clearLocalStorage()"></td>
+					</tr>
+</table>
+<hr>
+<table align="center">
+<tr>
+<td>&copy;Copyright 2016-2017| All Rights Reserved | Metacube Training</td>
+</tr>
+</table>
+<script src="LocalStorageProperty.js"></script>
+<body>
+</html>

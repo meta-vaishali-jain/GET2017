@@ -1,0 +1,10 @@
+
+/**
+set time out of the function to 2 minutes i.e.after 2 minutes the function will execute
+*/
+setTimeout("timedCount();",120000);
+function timedCount(){
+  var date=new Date();
+  //function to post message on the html element
+    postMessage(date);
+}
