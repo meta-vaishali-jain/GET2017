@@ -1,0 +1,178 @@
+/**
+function for navigation from one page to another
+*/
+function goToThisPage(pageToGoTo){
+  window.location.assign(pageToGoTo);
+}
+
+/**
+function to check the limit of the text field by counting no of characters on each keychange event by providing limit of textbox as a parameter
+*/
+function limitText(limitField, limitNum) {
+    if (limitField.value.length > limitNum) {
+        limitField.value = limitField.value.substring(0, limitNum);
+    }
+}
+
+/**
+function to provide validations for name that it shouls have characters only.
+*/
+function checkName(Field){
+        var inputtxt=document.getElementById('userName').value;
+      var letters = "^[A-Za-z ]+$";
+      if(inputtxt.match(letters)){
+        document.getElementById('nameICon').style.display='none';
+      document.getElementById(Field).innerHTML="";
+      return true;
+      }
+      else{
+    document.getElementById('nameICon').style.display='inline';
+        document.getElementById(Field).innerHTML="invalid name";
+        document.getElementById('userName').focus();
+        return false;
+      }
+      }
+
+/**
+  function to provide validations for email
+*/
+      function checkEmail(Field){
+            var inputtxt=document.getElementById('userEmail').value;
+          var letters = "^[a-zA-Z0-9._]+@[a-zA-Z]+.[a-zA-Z]{2,3}$";
+          if(inputtxt.match(letters)){
+            document.getElementById('emailICon').style.display='none';
+          document.getElementById(Field).innerHTML="";
+          return true;
+          }
+          else{
+          document.getElementById('emailICon').style.display='inline';
+          document.getElementById('emailError').innerHTML="invalid email";
+          document.getElementById('userEmail').focus();
+          return false;
+          }
+          }
+
+/**
+function to provide validations on city
+*/
+    function checkCity(Field){
+          var selectIndex=document.getElementById('userCity').selectedIndex;
+          var inputtxt=document.getElementById('userCity').options;
+          if(!inputtxt=="") {
+        	 document.getElementById("selectedCity").style.display='block';
+           document.getElementById("selectedCity").value ="selected city: " + inputtxt[selectIndex].text;
+        	 return true;
+         }
+      else{
+             document.getElementById('userCity').focus();
+        	    return false;
+           }
+         }
+
+/**
+function to provide validations on organisation that it should contain characters only
+*/
+  function checkOrganisation(Field)  {
+      var inputtxt=document.getElementById('userOrgName').value;
+              var letters = "^[A-Za-z ]+$";
+              if(inputtxt.match(letters)){
+                document.getElementById('orgICon').style.display='none';
+                document.getElementById(Field).innerHTML="";
+                return true;
+              }
+              else{
+                  document.getElementById('orgICon').style.display='inline';
+                  document.getElementById(Field).innerHTML="invalid organisation name";
+                  document.getElementById('userOrgName').focus();
+                  return false;
+                  }
+              }
+
+/**
+function to provide validation on contact that it should only have 9 digits and starts with 9 or 8 or 7
+*/
+    function checkContact(Field){
+              var inputtxt=document.getElementById('userContactNo').value;
+              var letters = /^[7-9][0-9]{9}$/;
+              if(inputtxt.match(letters)){
+                document.getElementById('contactICon').style.display='none';
+                document.getElementById(Field).innerHTML="";
+                return true;
+              }
+              else{
+                document.getElementById('contactICon').style.display='inline';
+                document.getElementById(Field).innerHTML="invalid contact number";
+                document.getElementById('userContactNo').focus();
+                return false;
+              }
+            }
+
+/**
+function to save value to local storage
+*/
+function saveToLocalStorage(){
+  var userName=document.getElementById('userName').value;
+  var userEmail=document.getElementById('userEmail').value;
+  var selectIndex=document.getElementById('userCity').selectedIndex;
+  var inputtxt=document.getElementById('userCity').options;
+  var userCity=inputtxt[selectIndex].text;
+  var selectedCity=document.getElementById('selectedCity').value;
+  var userOrganisation=document.getElementById('userOrgName').value;
+  var userContactNumber=document.getElementById('userContactNo').value;
+  var userMessage=document.getElementById('message').value;
+  var userDetailsObject={"userName":userName,"userEmail":userEmail,"userCity":userCity,"selectedCity":selectedCity,"userOrganisation":userOrganisation,"userContactNumber":userContactNumber,"userMessage":userMessage}
+  var userDetailsJSONObject=JSON.stringify(userDetailsObject);
+  localStorage.setItem("userDetails",userDetailsJSONObject);
+  document.getElementById('userCity').options[0].text="";
+  validateForm();
+   document.getElementById("theform").reset();
+}
+
+/**
+function to get value from local storage on each load event of page and all text fields value
+*/
+window.onload=function getLocalStorageValue(){
+  var userDetailsJSONObject=localStorage.getItem("userDetails");
+  var userDetailsObject=JSON.parse(userDetailsJSONObject);
+  document.getElementById('userName').value=userDetailsObject.userName;
+  document.getElementById('userEmail').value=userDetailsObject.userEmail;
+  document.getElementById('userCity').options[0].text=userDetailsObject.userCity;
+    document.getElementById("selectedCity").style.display='block';
+  document.getElementById('selectedCity').value=userDetailsObject.selectedCity;
+  document.getElementById('userOrgName').value=userDetailsObject.userOrganisation;
+  document.getElementById('userContactNo').value=userDetailsObject.userContactNumber;
+  document.getElementById('message').value=userDetailsObject.userMessage;
+};
+
+/**
+function to clear local storage value corresponding to particular keyvalue
+*/
+function clearLocalStorage(){
+  document.getElementById('userCity').options[0].text="";
+  document.getElementById("theform").reset();
+  localStorage.removeItem("userDetails");
+}
+
+/**
+function to check if there is any message written in message textbox or not.
+*/
+function checkMessage(){
+  if(document.getElementById("message").value.length>0){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+/**
+function to check if all fields are completely filled or not
+*/
+function validateForm(){
+  if(checkName('nameError') && checkEmail('emailError') && checkCity('cityError') && checkOrganisation('orgError') && checkContact('contactError') && checkMessage()){
+    document.getElementById("formfill").innerHTML="";
+  }
+  else{
+      document.getElementById("formfill").innerHTML="Please enter all fields";
+  }
+}

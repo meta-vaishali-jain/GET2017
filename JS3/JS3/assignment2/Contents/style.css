@@ -1,0 +1,21 @@
+.name{
+  position:relative;
+}
+
+.error{
+  color:red;
+  position:absolute;
+  left:110%;
+  display:none;
+  width:50%;
+}
+
+.fa{
+  color:red;
+  display: none;
+}
+
+.fa:hover + .error{
+display: inline-block;
+
+}
