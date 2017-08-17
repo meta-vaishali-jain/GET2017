@@ -1,0 +1,3 @@
+1001,tea,tea
+1002,sugar,sugar
+1003,stationary,pencil
