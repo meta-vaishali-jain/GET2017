@@ -1,0 +1,30 @@
+1,Mobiles & Tablets
+2,Computers
+3,Home Appliances
+4,Mobiles,1
+5,Smart Phones,4
+6,Featured Phones,4
+7,Tablets,1
+8,2G,7
+9,3G,7
+10,Accessories,1
+11,Cases & Covers,1
+12,Desktop,2
+13,Laptop,2
+14,Laptop Accessories,2
+15,KeyBoard,14
+16,Mouse,14
+17,HeadPhones,14
+18,Printers,2
+19,Inkjet,18
+20,Laser,18
+21,TVs,3
+22,LED,21
+23,LCD,21
+24,Plasma,21
+25,Air Conditioners,3
+26,Washing Machines,3
+27,Full Automatic,26
+28,Top Load,27
+29,Front Load,27
+30,Semi Automatic,26
