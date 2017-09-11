@@ -1,0 +1,57 @@
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+<h1>Create employee</h1>
+<form>
+<table align="center">
+		<tr>
+		<td>Enter Employee ID </td>
+		<td><input type=text name="employeeId" id="employeeId" pattern="[0-9]{3}"
+					 required="required" /></td>
+		</tr>
+		
+		<tr>
+		<td>Enter Employee Name </td>
+		<td><input type=text name="employeeName" id="employeeName" pattern="[a-zA-Z][a-zA-Z\s]*"
+					 required="required" /></td>
+		</tr>
+		<tr>
+			<td><button type="button" onclick="loadDoc()">Change Content</button></td>
+		</tr>
+					 
+		</table>	 
+</form>
+	<p> <span id="txtHint"></span></p>
+</div>
+
+<script>
+function loadDoc() {
+	
+  var xhttp = new XMLHttpRequest();
+  var dtId=document.getElementById("employeeId").value;
+  var dtValue = document.getElementById("employeeName").value;
+ 
+  var link =   "http://localhost:8081/WS2/rest/employees/create/" + escape(dtId)+"/"+escape(dtValue);
+  xhttp.onreadystatechange = function() {
+     if (this.readyState == 4 && this.status == 200) {
+    	 if(this.responseText=="false"){
+    		 document.getElementById("txtHint").innerHTML = "Employee Id already exist";
+    	}else{
+    	   document.getElementById("txtHint").innerHTML ="Employee "+dtValue+" added successfully with ID "+ dtId;
+    	}
+    }
+  };
+  
+ 
+	  xhttp.open("GET",link, true);
+  	  xhttp.send();
+ 
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+<h1>Get Employee By ID</h1>
+<form>
+<table>
+		<tr>
+		<td>Enter Employee Id</td>
+		<td><input type=text name="employeeId" id="employeeId" pattern="[0-9]{3}"
+					 required="required" /></td>
+		</tr>
+		
+		<tr>
+			<td><button type="button" onclick="loadDoc()">Change Content</button></td>
+		</tr>
+		
+		</table>
+</form>
+<p>Suggestions: <span id="txtHint"></span></p>
+</div>
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  var dt_value = document.getElementById("employeeId").value;
+  var sjdurl =   "http://localhost:8081/WS2/rest/employees/getById/" + escape(dt_value);
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    	if(this.responseText!="[]"){
+    	   document.getElementById("txtHint").innerHTML = this.responseText;
+    	}else{
+    		document.getElementById("txtHint").innerHTML = "Employee with this ID  not found";
+    	}
+    }
+  };
+  xhttp.open("GET",sjdurl, true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
