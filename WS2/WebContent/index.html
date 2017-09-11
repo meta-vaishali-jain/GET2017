@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<form action="index.html" method="GET">
+	<table>
+	<tr>
+		<td><input type="submit" name="createEmployee" value="Create Employee"
+						onclick="form.action='createEmployee.html';"/></td>
+		
+	</tr>
+	<tr>
+		<td><button type="button" onclick="loadDoc()">Get All Employee</button></td>
+		
+	</tr>
+	<tr>
+		<td><input type="submit" name="getEmployeeByName" value="Get Employee By Name"
+						onclick="form.action='getEmployeeByName.html';"/></td>
+		
+	</tr>
+	<tr>
+		<td><input type="submit" name="getEmployeeByID" value="Get Employee By ID"
+						onclick="form.action='getEmployeeByID.html';"/></td>
+		
+	</tr>
+	<tr>
+		<td><input type="submit" name="deleteEmployee" value="Delete Employee"
+						onclick="form.action='deleteEmployee.html';"/></td>
+		
+	</tr>
+	</table>
+	</form>
+	<p><span id="txtHint"></span></p>
+	<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  //var dtValue = document.getElementById("employeeId").value;
+  var sjdurl =   "http://localhost:8081/WS2/rest/employees/getAll/";
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    	alert(this.responseText);
+    	if(this.responseText == "[]"){
+    		 document.getElementById("txtHint").innerHTML = "No employee is there";
+    	}else{
+    	   document.getElementById("txtHint").innerHTML =this.responseText;
+    	}
+    }
+  };
+  xhttp.open("GET",sjdurl, true);
+  xhttp.send();
+}
+</script>
+</body>
+</html>

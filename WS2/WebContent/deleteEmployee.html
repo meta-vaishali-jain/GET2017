@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+<h1>Delete Employee</h1>
+<form>
+<table>
+		<tr>
+		<td>Enter Employee Id</td>
+		<td><input type=text name="employeeId" id="employeeId" pattern="[0-9]{3}"
+					 required="required" /></td>
+		</tr>
+		
+		<tr>
+			<td><button type="button" onclick="loadDoc()">Delete</button></td>
+		</tr>
+		
+		</table>
+</form>
+<p><span id="txtHint"></span></p>
+</div>
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  var dtValue = document.getElementById("employeeId").value;
+  var sjdurl =   "http://localhost:8081/WS2/rest/employees/deleteById/" + escape(dt_value);
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    	if(this.responseText=="false"){
+    		 document.getElementById("txtHint").innerHTML = "ID not exist";
+    	}else{
+    	   document.getElementById("txtHint").innerHTML ="Employee"+dtValue+" deleted successfully";
+    	}
+    }
+  };
+  xhttp.open("GET",sjdurl, true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
