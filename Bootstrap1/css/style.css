@@ -1,0 +1,156 @@
+
+
+  .logo{
+    background-color: #C36464;
+    color: #FFFFFD;
+    padding: 20px 10px 15px 0px;
+  }
+
+  .logo .container button{
+      background-color: #F0677C;
+      border:1px solid black;
+  }
+
+  .logo .container .navbar-toggle .icon-bar{
+      background-color:white;
+    }
+
+  footer{
+    background-color: #C36464;
+    color: #FFFFFD;
+    padding:15px;
+  }
+
+  .rightpanel .panel-footer{
+    padding:50px;
+  }
+
+.glyphicon-user {
+  font-size: 30px;
+  background-color: #F0677C;
+  padding: 15px;
+  color: #FDEBE9;
+  float:right;
+}
+
+.navbar-inverse{
+  border:0px;
+  border-radius:0px;
+}
+.navbar{
+  min-height: 0px;
+}
+.navbar-inverse .navbar-nav>li>a {
+  color:white;
+}
+
+#active{
+  background-color: #C36464;
+}
+
+.navbar li:hover{
+    background-color: #C36464;
+}
+
+.dashboard-container{
+  color:#F1798B;
+}
+
+.dashboard-container .container hr {
+	border-top: 2px solid #F1798B;
+	margin-top: 5px;
+}
+
+.dashboard-container .container hr{
+  color:#F1798B;
+}
+
+#notify{
+  background-color: #B9B739;
+}
+
+
+#gallery{
+  background-color:#F94C4C;
+
+}
+
+#favourites{
+  background-color: #119C7E;
+
+}
+
+#volume{
+  background-color:#B739B9;
+
+}
+
+.section3 .container{
+  color:white;
+}
+
+.section3 .container .glyphicon{
+  font-size: 30px;
+  padding:15px;
+  border:2px solid white;
+}
+
+.panel-body ul{
+  list-style: none;
+}
+
+
+.notice-panel .glyphicon{
+  border:1px solid lightgray;
+  padding :5px;
+}
+
+.panel-heading{
+  padding:20px;
+}
+
+.glyphicon-align-left{
+  color:#9EBBAA;
+}
+
+.glyphicon-info-sign{
+  color:#AA4D52;
+}
+
+.glyphicon-comment{
+  color:#8A6D3B;
+}
+
+.glyphicon-edit{
+  color:#CA8C8B;
+}
+
+ .btn{
+  border-radius: 0px;
+}
+
+#socialbuttons{
+  padding: 14px;
+	background-color: #fcf8e3;
+  color:white;
+}
+
+.btn-facebook {
+    background-color: #3B5998;
+}
+
+.btn-google {
+    background-color: #DD4B39;
+}
+
+.btn-twitter {
+    background-color: #55ACEE;
+}
+
+.btn-linkedin {
+    background-color: #0082CA;
+}
+
+#socialbuttons .glyphicon{
+  color: #FDEBE9;
+}
