@@ -1,0 +1,25 @@
+<h1 class="jumbotron text-center">{{title}}</h1>
+<div class="container">
+        <a class="col-sm-3" style="text-decoration:none;" *ngFor="let product of products"
+        [class.selected]="product === selectedProduct"
+        (click)="onSelect(product)">
+                <div class="list-group">
+                  <div class="list-group-item active" align="center">{{product.id}}</div>
+                 <div class="list-group-item text-center"><table style="width:100%"><tbody><tr><th></th><td>{{product.name}}</td></tr></tbody></table></div>
+                </div>
+        </a>
+</div>
+
+<div class="w3-card-4 w3-animate-right text-center" style="width:50%;" *ngIf="selectedProduct">
+        <header class="w3-container w3-blue">
+          <h1>{{selectedProduct.name}} Details</h1>
+        </header>
+    
+        <div class="w3-container">
+                <table class="w3-table-all">
+                    <tr><td>id :</td><td>{{selectedProduct.id}}</td></tr>
+                    <tr><td>name :</td><td>{{selectedProduct.name}}</td></tr>
+                    <tr><td>price :</td><td>{{selectedProduct.price}}</td></tr>
+                </table>
+            </div>
+      </div>
