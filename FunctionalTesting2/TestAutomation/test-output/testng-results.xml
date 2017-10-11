@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" ignored="0" total="6" passed="5">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="85916" started-at="2017-10-11T13:25:07Z" finished-at="2017-10-11T13:26:33Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="85916" started-at="2017-10-11T13:25:07Z" finished-at="2017-10-11T13:26:33Z">
+      <class name="com.metacube.testautomation.TestNG_LoginCheck">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.metacube.testautomation.TestNG_LoginCheck@f4468b]" name="beforeTest" is-config="true" duration-ms="42095" started-at="2017-10-11T18:55:07Z" finished-at="2017-10-11T18:55:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="testAccountCreationForChrome()[pri:1, instance:com.metacube.testautomation.TestNG_LoginCheck@f4468b]" name="testAccountCreationForChrome" duration-ms="9102" started-at="2017-10-11T18:55:49Z" finished-at="2017-10-11T18:55:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAccountCreationForChrome -->
+        <test-method status="PASS" signature="testForgotPasswordForChrome()[pri:2, instance:com.metacube.testautomation.TestNG_LoginCheck@f4468b]" name="testForgotPasswordForChrome" duration-ms="4006" started-at="2017-10-11T18:55:58Z" finished-at="2017-10-11T18:56:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testForgotPasswordForChrome -->
+        <test-method status="PASS" signature="testAccountCreationForFireFox()[pri:3, instance:com.metacube.testautomation.TestNG_LoginCheck@f4468b]" name="testAccountCreationForFireFox" duration-ms="9798" started-at="2017-10-11T18:56:02Z" finished-at="2017-10-11T18:56:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAccountCreationForFireFox -->
+        <test-method status="PASS" signature="testForgotPasswordForFireFox()[pri:4, instance:com.metacube.testautomation.TestNG_LoginCheck@f4468b]" name="testForgotPasswordForFireFox" duration-ms="6588" started-at="2017-10-11T18:56:12Z" finished-at="2017-10-11T18:56:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testForgotPasswordForFireFox -->
+        <test-method status="FAIL" signature="testAccountCreationForIE()[pri:5, instance:com.metacube.testautomation.TestNG_LoginCheck@f4468b]" name="testAccountCreationForIE" duration-ms="2462" started-at="2017-10-11T18:56:19Z" finished-at="2017-10-11T18:56:21Z">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Unable to find element with css selector == #email_create
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'USER11-PC', ip: '172.16.33.111', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0_11'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{acceptInsecureCerts=false, browserVersion=11, se:ieOptions={nativeEvents=true, browserAttachTimeout=0.0, ie.ensureCleanSession=false, elementScrollBehavior=0.0, enablePersistentHover=true, ie.browserCommandLineSwitches=, ie.forceCreateProcessApi=false, requireWindowFocus=false, initialBrowserUrl=http://localhost:16318/, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000.0, ignoreProtectedModeSettings=false}, browserName=internet explorer, pageLoadStrategy=normal, javascriptEnabled=true, platformName=windows, setWindowRect=true, platform=ANY}]
+Session ID: d031ac6c-a598-480d-b9f2-5a294e1b6dfd
+*** Element info: {Using=id, value=email_create}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to find element with css selector == #email_create
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'USER11-PC', ip: '172.16.33.111', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0_11'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{acceptInsecureCerts=false, browserVersion=11, se:ieOptions={nativeEvents=true, browserAttachTimeout=0.0, ie.ensureCleanSession=false, elementScrollBehavior=0.0, enablePersistentHover=true, ie.browserCommandLineSwitches=, ie.forceCreateProcessApi=false, requireWindowFocus=false, initialBrowserUrl=http://localhost:16318/, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000.0, ignoreProtectedModeSettings=false}, browserName=internet explorer, pageLoadStrategy=normal, javascriptEnabled=true, platformName=windows, setWindowRect=true, platform=ANY}]
+Session ID: d031ac6c-a598-480d-b9f2-5a294e1b6dfd
+*** Element info: {Using=id, value=email_create}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:453)
+	at org.openqa.selenium.By$ById.findElement(By.java:218)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at com.metacube.testautomation.TestNG_LoginCheck.testAccountCreationForIE(TestNG_LoginCheck.java:74)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:776)
+	at org.testng.TestRunner.run(TestRunner.java:634)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
+	at org.testng.TestNG.runSuites(TestNG.java:1161)
+	at org.testng.TestNG.run(TestNG.java:1129)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAccountCreationForIE -->
+        <test-method status="PASS" signature="testForgotPasswordForIE()[pri:6, instance:com.metacube.testautomation.TestNG_LoginCheck@f4468b]" name="testForgotPasswordForIE" duration-ms="6972" started-at="2017-10-11T18:56:21Z" finished-at="2017-10-11T18:56:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testForgotPasswordForIE -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.metacube.testautomation.TestNG_LoginCheck@f4468b]" name="afterTest" is-config="true" duration-ms="4850" started-at="2017-10-11T18:56:28Z" finished-at="2017-10-11T18:56:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.metacube.testautomation.TestNG_LoginCheck -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
