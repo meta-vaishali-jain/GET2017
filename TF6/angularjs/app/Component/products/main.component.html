@@ -1,0 +1,39 @@
+<div class="row">
+    <header>
+    
+    <h1 class="text-center jumbotron mainHeader" >{{title}}</h1>
+    
+    </header>
+    </div>
+    
+    <div>
+    <nav class="navbar navbar-inverse">
+            <button type="button" class="btn btn-info pull-left " (click)="LogOut()">Log Out</button>
+    <div class="container">
+    <div class="collapse navbar-collapse" id="navbar">
+        <div class="row">
+    <ul class="nav navbar-nav" >
+    <li><a [routerLink]="['/main/previousOrder']" routerLinkActive="active" >My Orders</a></li>
+    <li><a [routerLink]="['dashboard']" routerLinkActive="active" >Dashboard</a></li>
+    <li><a [routerLink]="['products']" routerLinkActive="active" >Products</a></li>
+    <li><a [routerLink]="['contact-us']" routerLinkActive="active">Contact Us</a></li>
+    <li></li>
+   
+    </ul>
+    <div>
+    <a [routerLink]="['cart']" routerLinkActive="active" style="color:white; position:relative; margin-top:10px;" *ngIf="minicart" class="pull-right">
+        <span class="glyphicon glyphicon-shopping-cart" style="font-size:28px;vertical-align:middle;"> </span>
+        <span style="position:absolute;left:10px;right:0;z-index:1;color:black; font-size:14px; margin-top:1px;"> 
+            {{minicart.totalProduct}} </span> <strong> ₹ {{minicart.totalPrice}} </strong></a>
+        </div>
+        </div>
+    </div>
+    </div>
+    </nav>
+    
+    <router-outlet></router-outlet>
+    
+    
+    </div>
+
+    

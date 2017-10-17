@@ -1,0 +1,40 @@
+<div class="container">
+        <button (click)="goBack()"  class="btn btn-primary "><span class="glyphicon glyphicon-chevron-left"></span></button>
+<div class="mypanel mymargin">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="panel-title text-center">My Orders</div>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Order Id</th>
+                            <th>Order Date</th>
+                            <th>Order Total Price</th>
+                            
+                            <th>Details</th>
+                           
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor= "let order of orderDetails" >
+                            <td>{{order.orderId}}</td>
+                            <td>{{order.orderDate}} </td>
+                            <td>&#8377;{{order.finalPrice}}</td>
+                           
+                            <td> 
+                                <button class="btn btn-info btn-sm " [routerLink] ="['/main/viewOrderDetails',order.orderId]" >
+                                <span class="glyphicon glyphicon-list-alt"></span> Detail</button>   
+                            </td>
+                           
+                        </tr>
+                          
+                        </tbody>
+                      </table>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
